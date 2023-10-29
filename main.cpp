@@ -3,6 +3,7 @@
 #include <iostream>
 using namespace std;
 
+//main
 int main() {
     sf::RenderWindow window(sf::VideoMode(1720, 1080), "SFML Example");
 
