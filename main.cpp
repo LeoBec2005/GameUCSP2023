@@ -19,10 +19,12 @@ int main() {
                 window.close();
             }
         }
+        
         window.clear();
 
         player1.draw(window);
         player1.move(width, height);
+        player1.attack();
         
         window.display();
     }

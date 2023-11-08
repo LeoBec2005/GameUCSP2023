@@ -138,7 +138,7 @@
     <ClInclude Include="player.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="assets\walksprites.png" />
+    <Image Include="assets\playersprites.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
