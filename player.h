@@ -17,7 +17,6 @@ private:
     float y = 300;
     float speed = 0.5;
     int mode = 3;
-
 public:
 Player() {
     circle.setRadius(50);
@@ -29,51 +28,39 @@ Player() {
     bool Attacking(false);
 	}
 
+
+void spritesf(float a,float b,float c,float d,float e,float f,float& xtext) {
+    if (animationClock.getElapsedTime().asSeconds() >= animationSpeed) {
+        xtext += a;
+        if (xtext >= b)
+            xtext = c;
+        playerSprite.setTextureRect(sf::IntRect(xtext, d, e, f));
+        animationClock.restart();
+    }
+}
+
+
 void move(int width, int height) {
     // mode w = 1,a = 2, s = 3, d = 4
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
         mode = 1;
         y -= speed;
-        if (animationClock.getElapsedTime().asSeconds() >= animationSpeed) {
-            xtexture += 25.5;
-            if (xtexture >= 101)
-                xtexture = 0;
-            playerSprite.setTextureRect(sf::IntRect(xtexture, 96.75, 22, 32.25));
-            animationClock.restart();
-        }
+    spritesf(25.5,101,0,96.75,22,32.25, xtexture);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
         mode = 2;
         x -= speed;
-        if (animationClock.getElapsedTime().asSeconds() >= animationSpeed) {
-            xtexture += 25.5;
-            if (xtexture >= 101)
-                xtexture = 0;
-            playerSprite.setTextureRect(sf::IntRect(xtexture, 32.25, 20, 32.25));
-            animationClock.restart();
-        }
+    spritesf(25.5,101,0,32.25,20,32.25, xtexture);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
         mode = 3;
         y += speed;
-        if (animationClock.getElapsedTime().asSeconds() >= animationSpeed) {
-            xtexture += 25.5;
-            if (xtexture >= 101)
-                xtexture = 0;
-            playerSprite.setTextureRect(sf::IntRect(xtexture, 0, 22, 32.25));
-            animationClock.restart();
-        }
+    spritesf(25.5,101,0,0,22,32.25, xtexture);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
         mode = 4;
         x += speed;
-        if (animationClock.getElapsedTime().asSeconds() >= animationSpeed) {
-            xtexture += 25.5;
-            if (xtexture >= 101)
-                xtexture = 0;
-            playerSprite.setTextureRect(sf::IntRect(xtexture, 64.5, 20, 32.25));
-            animationClock.restart();
-        }
+    spritesf(25.5,101,0,64.5,20,32.25, xtexture);
     }
     playerSprite.setPosition(x, y);
     circle.setPosition(x, y);
@@ -95,53 +82,29 @@ void move(int width, int height) {
     }
 }
 
+
 void attack() {
     // mode w = 1,a = 2, s = 3, d = 4
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
         playerSprite.setPosition(x-100, y-50);
         Attacking = true;
         if (mode == 3) {
-            if (animationClock.getElapsedTime().asSeconds() >= animationSpeed) {
-                attacktexture += 47;
-                if (attacktexture >= 330)
-                    attacktexture = 101;
-                playerSprite.setTextureRect(sf::IntRect(attacktexture, 0, 47, 45));
-                animationClock.restart();
-            }
+        spritesf(47,330,101,0,47,45, attacktexture);
 		}
         if (mode == 2) {
-            if (animationClock.getElapsedTime().asSeconds() >= animationSpeed) {
-                attacktexture += 47;
-                if (attacktexture >= 330)
-                    attacktexture = 101;
-                playerSprite.setTextureRect(sf::IntRect(attacktexture, 45.25, 47, 45));
-                animationClock.restart();
-            }
+        spritesf(47,330,101,45.25,47,45, attacktexture);
         }
         if (mode == 1) {
-            if (animationClock.getElapsedTime().asSeconds() >= animationSpeed) {
-                attacktexture += 48;
-                if (attacktexture >= 330)
-                    attacktexture = 101;
-                playerSprite.setTextureRect(sf::IntRect(attacktexture, 135.75, 48, 45));
-                animationClock.restart();
-            }
+        spritesf(48,330,101,135.75,48,45, attacktexture);
         }
         if (mode == 4) {
-            if (animationClock.getElapsedTime().asSeconds() >= animationSpeed) {
-                attacktexture += 50;
-                if (attacktexture >= 330)
-                    attacktexture = 101;
-                playerSprite.setTextureRect(sf::IntRect(attacktexture, 90.5, 50, 45));
-                animationClock.restart();
-            }
+        spritesf(50,330,101,90.5,50,45, attacktexture);
         }
     }
     if (!sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
         Attacking = false;
     }   
 }
-
 
 
 void draw(sf::RenderWindow& window) {
