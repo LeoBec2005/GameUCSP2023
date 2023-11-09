@@ -38,7 +38,9 @@ void Player::Attack1(Entity* target) {
         float thresholdDistance = 10.0f;
 
         if (distance <= thresholdDistance) {
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z)) {
             target->setLife(target->getLife() - 10);
+            }
         }
     }
 }

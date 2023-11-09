@@ -3,15 +3,20 @@
 #include "Entity.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "Settings.h"
 
 int main() {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Juego SFML");
+    sf::RenderWindow window(sf::VideoMode(Settings::Width, Settings::Height), "Juego SFML");
 
-    Player* player = new Player(30, 200.0f, 100);
+    Player* player = new Player(30, 200.0f, 200);
     player->setPosition(100, 100);
 
-    Entity* enemy = new Enemy(30, 100.0f, 50, *static_cast<Player*>(player));
+    Enemy* enemy = new Enemy(30, 100.0f, 50);
     enemy->setPosition(600, 400);
+    enemy->setTarget(player);
+
+    Settings healthBar(player->getLife());
+    //Settings healthBar(enemy->getLife());
 
     sf::Clock clock;
 
@@ -25,9 +30,8 @@ int main() {
             }
         }
 
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z)) {
-            player->Attack1(enemy); // Asignamos a Enemy como el objetivo de Player
-        }
+        player->Attack1(enemy);
+        enemy->Attack1(player);
 
         if (player->getLife() <= 0) {
             player->Death(); // Hacer que el jugador desaparezca
@@ -43,6 +47,11 @@ int main() {
         window.clear();
         player->draw(window);
         enemy->draw(window);
+
+        // Dibuja la barra de vida después de los elementos del juego
+        healthBar.draw(window);
+        healthBar.update(player->getLife());
+
         window.display();
     }
 
