@@ -9,7 +9,7 @@ private:
     sf::Texture playertexture;
     sf::Sprite playerSprite;
     float xtexture = 0;
-    float attacktexture = 101;
+    float attacktexture = 192;
     sf::Clock animationClock;
     bool Attacking;
     float animationSpeed = 0.2;
@@ -17,6 +17,9 @@ private:
     float y = 300;
     float speed = 0.5;
     int mode = 3;
+    float radius;
+    //float speed;
+    int life;
 public:
 Player() {
     circle.setRadius(50);
@@ -45,22 +48,22 @@ void move(int width, int height) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
         mode = 1;
         y -= speed;
-    spritesf(25.5,101,0,96.75,22,32.25, xtexture);
+    spritesf(48, 192,0,132.75,48,45, xtexture);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
         mode = 2;
         x -= speed;
-    spritesf(25.5,101,0,32.25,20,32.25, xtexture);
+    spritesf(48, 192,0,45.25, 48, 45, xtexture);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
         mode = 3;
         y += speed;
-    spritesf(25.5,101,0,0,22,32.25, xtexture);
+    spritesf(48, 192,0,0, 48, 45, xtexture);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
         mode = 4;
         x += speed;
-    spritesf(25.5,101,0,64.5,20,32.25, xtexture);
+    spritesf(48, 192,0,90.5, 48, 45, xtexture);
     }
     playerSprite.setPosition(x, y);
     circle.setPosition(x, y);
@@ -86,19 +89,18 @@ void move(int width, int height) {
 void attack() {
     // mode w = 1,a = 2, s = 3, d = 4
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-        playerSprite.setPosition(x-100, y-50);
         Attacking = true;
         if (mode == 3) {
-        spritesf(47,330,101,0,47,45, attacktexture);
+        spritesf(48,432,192, 0, 48, 45, attacktexture);
 		}
         if (mode == 2) {
-        spritesf(47,330,101,45.25,47,45, attacktexture);
+        spritesf(48, 432, 192, 45.25, 48, 45, attacktexture);
         }
         if (mode == 1) {
-        spritesf(48,330,101,135.75,48,45, attacktexture);
+        spritesf(48, 432, 192, 132, 48, 45, attacktexture);
         }
         if (mode == 4) {
-        spritesf(50,330,101,90.5,50,45, attacktexture);
+        spritesf(49, 432, 192, 90.5, 48, 45, attacktexture);
         }
     }
     if (!sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
