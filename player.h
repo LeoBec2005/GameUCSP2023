@@ -15,7 +15,7 @@ private:
     float animationSpeed = 0.2;
     float x = 400;
     float y = 300;
-    float speed = 0.5;
+    float speed = 600;
     int mode = 3;
     float radius;
     //float speed;
@@ -43,46 +43,34 @@ void spritesf(float a,float b,float c,float d,float e,float f,float& xtext) {
 }
 
 
-void move(int width, int height) {
+void move(sf::Time deltaTime) {
     // mode w = 1,a = 2, s = 3, d = 4
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
         mode = 1;
-        y -= speed;
+        playerSprite.move(0, -speed * deltaTime.asSeconds());
+
     spritesf(48, 192,0,132.75,48,45, xtexture);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
         mode = 2;
-        x -= speed;
+        playerSprite.move(-speed * deltaTime.asSeconds(), 0);
     spritesf(48, 192,0,45.25, 48, 45, xtexture);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
         mode = 3;
-        y += speed;
+        playerSprite.move(0, speed * deltaTime.asSeconds());
     spritesf(48, 192,0,0, 48, 45, xtexture);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
         mode = 4;
-        x += speed;
+        playerSprite.move(speed * deltaTime.asSeconds(), 0);
     spritesf(48, 192,0,90.5, 48, 45, xtexture);
     }
-    playerSprite.setPosition(x, y);
-    circle.setPosition(x, y);
 
     std::cout << std::fixed << std::setprecision(1);
     cout << "x:" << x <<"   y:" << y << "   attack:" <<boolalpha<< Attacking <<"    modo:"<<mode << "    textures:"<<xtexture<<"    "<< attacktexture << endl;
     std::cout << std::defaultfloat;
-    if (x == width-125) {
-        x--;
-    }
-    if (x == 0) {
-        x++;
-    }
-    if (y == 0) {
-        y++;
-    }
-    if (y == height-200) {
-        y--;
-    }
+
 }
 
 

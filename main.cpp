@@ -11,9 +11,11 @@ int main() {
     sf::RenderWindow window(sf::VideoMode(width, height), "SFML Example");
 
     Player player1;
+    sf::Clock clock;
     
     while (window.isOpen()) {
         sf::Event event;
+        sf::Time deltaTime = clock.restart();
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed) {
                 window.close();
@@ -23,7 +25,7 @@ int main() {
         window.clear();
 
         player1.draw(window);
-        player1.move(width, height);
+        player1.move(deltaTime);
         player1.attack();
         
         window.display();
