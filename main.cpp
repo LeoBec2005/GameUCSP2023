@@ -1,34 +1,57 @@
 #include <SFML/Graphics.hpp>
-#include <iomanip> 
+#include <cmath>
 #include <iostream>
-#include "player.h"
-using namespace std;
+#include <iomanip>
+#include "Entity.h"
+#include "Player.h"
+#include "Enemy.h"
+#include "Settings.h"
 
-//main
 int main() {
-    int width=1720; 
-    int height=900; 
-    sf::RenderWindow window(sf::VideoMode(width, height), "SFML Example");
+    sf::RenderWindow window(sf::VideoMode(Settings::Width, Settings::Height), "Juego SFML");
 
-    Player player1;
+    Player* player = new Player(30, 200.0f, 200);
+    player->setPosition(100, 100);
+    Enemy* enemy = new Enemy(30, 100.0f, 50);
+    enemy->setPosition(600, 400);
+    enemy->setTarget(player);
+
+    Settings healthBar(player->getLife());
+
     sf::Clock clock;
-    
+
     while (window.isOpen()) {
-        sf::Event event;
         sf::Time deltaTime = clock.restart();
+
+        sf::Event event;
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed) {
                 window.close();
             }
         }
-        
-        window.clear();
+        player->Attack1(enemy);
+        enemy->Attack1(player);
+        if (player->getLife() <= 0) {
+            player->Death();
+        }
+        if (enemy->getLife() <= 0) {
+            enemy->Death();
+        }
+        player->update(deltaTime);
+        enemy->update(deltaTime);
 
-        player1.draw(window);
-        player1.move(deltaTime);
-        player1.attack();
-        
+        window.clear();
+        player->draw(window); // Llama a la función draw de Player que ya incluye la llamada a window.draw()
+        enemy->draw(window);  // Llama a la función draw de Enemy que ya incluye la llamada a window.draw()
+
+        healthBar.draw(window);
+        healthBar.update(player->getLife());
+
         window.display();
     }
+
+    delete player;
+    delete enemy;
+
     return 0;
 }
