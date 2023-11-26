@@ -1,30 +1,36 @@
+// entity.h
 #ifndef ENTITY_H
 #define ENTITY_H
 
 #include <SFML/Graphics.hpp>
-#include <cmath>
 
 class Entity {
 public:
-    Entity(float radius, float speed, int life);
-    virtual ~Entity() = default; // Agregamos un destructor virtual
+    Entity(const std::string& texturePath, float speed, int life, float damage);
+    virtual ~Entity() = default;
+
     virtual void Death() = 0;
 
     void setHitbox(float hitboxRadius);
     void setLife(int lifeValue);
+    void setDamage(int damageValue);
     void setSpeed(float speed);
     int getLife() const;
     sf::Vector2f getPosition() const;
     void setPosition(float x, float y);
     virtual void update(sf::Time deltaTime) = 0;
-    void draw(sf::RenderWindow& window);
+    virtual void draw(sf::RenderWindow& window);
+    virtual void setTarget(Entity* target) = 0;
+    virtual void Attack1(Entity* target) = 0;
+
 
 protected:
-    sf::CircleShape shape;
-    sf::CircleShape hitbox;
-    float radius;
+    sf::Sprite sprite;
+    sf::Texture texture; // Agregamos la textura aquí
+    sf::RectangleShape hitbox;
     float speed;
     int life;
+    float damage;
 };
 
 #endif

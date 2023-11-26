@@ -8,15 +8,15 @@
 int main() {
     sf::RenderWindow window(sf::VideoMode(Settings::Width, Settings::Height), "Juego SFML");
 
-    Player* player = new Player(30, 200.0f, 200);
+    Player* player = new Player(100.0f, 100, 80.0f);
     player->setPosition(100, 100);
 
-    Enemy* enemy = new Enemy(30, 100.0f, 50);
+    Entity* enemy = new Enemy(20.0f, 50, 20.0f);
     enemy->setPosition(600, 400);
-    enemy->setTarget(player);
 
     Settings healthBar(player->getLife());
-    //Settings healthBar(enemy->getLife());
+    player->setTarget(enemy);
+    enemy->setTarget(player);
 
     sf::Clock clock;
 
@@ -34,11 +34,13 @@ int main() {
         enemy->Attack1(player);
 
         if (player->getLife() <= 0) {
-            player->Death(); // Hacer que el jugador desaparezca
+            player->Death();
+            enemy->Death();
         }
 
         if (enemy->getLife() <= 0) {
-            enemy->Death(); // Hacer que el enemigo desaparezca
+            enemy->Death();
+            enemy->setTarget(player);
         }
 
         player->update(deltaTime);
@@ -48,7 +50,6 @@ int main() {
         player->draw(window);
         enemy->draw(window);
 
-        // Dibuja la barra de vida después de los elementos del juego
         healthBar.draw(window);
         healthBar.update(player->getLife());
 
