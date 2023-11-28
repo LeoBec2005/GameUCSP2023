@@ -132,13 +132,62 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Settings.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="player.h" />
+    <ClInclude Include="Settings.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\GameUCSP2023-Cris\assets\playersprites.png" />
+    <Image Include="..\GameUCSP2023-Cris\assets\playersprite_down1.png" />
+    <Image Include="..\GameUCSP2023-Cris\assets\playersprite_down2.png" />
+    <Image Include="..\GameUCSP2023-Cris\assets\playersprite_down3.png" />
+    <Image Include="..\GameUCSP2023-Cris\assets\playersprite_down4.png" />
+    <Image Include="..\GameUCSP2023-Cris\assets\playersprite_left1.png" />
+    <Image Include="..\GameUCSP2023-Cris\assets\playersprite_left2.png" />
+    <Image Include="..\GameUCSP2023-Cris\assets\playersprite_left3.png" />
+    <Image Include="..\GameUCSP2023-Cris\assets\playersprite_left4.png" />
+    <Image Include="..\GameUCSP2023-Cris\assets\playersprite_right1.png" />
+    <Image Include="..\GameUCSP2023-Cris\assets\playersprite_right2.png" />
+    <Image Include="..\GameUCSP2023-Cris\assets\playersprite_right3.png" />
+    <Image Include="..\GameUCSP2023-Cris\assets\playersprite_right4.png" />
+    <Image Include="..\GameUCSP2023-Cris\assets\playersprite_up1.png" />
+    <Image Include="..\GameUCSP2023-Cris\assets\playersprite_up2.png" />
+    <Image Include="..\GameUCSP2023-Cris\assets\playersprite_up3.png" />
+    <Image Include="..\GameUCSP2023-Cris\assets\playersprite_up4.png" />
+    <Image Include="..\GameUCSP2023-Cris\assets\walksprites.png" />
+    <Image Include="assets\enemysprite_down1.png" />
+    <Image Include="assets\enemysprite_down2.png" />
+    <Image Include="assets\enemysprite_down3.png" />
+    <Image Include="assets\enemysprite_down4.png" />
+    <Image Include="assets\enemysprite_left1.png" />
+    <Image Include="assets\enemysprite_left2.png" />
+    <Image Include="assets\enemysprite_left3.png" />
+    <Image Include="assets\enemysprite_left4.png" />
+    <Image Include="assets\enemysprite_right1.png" />
+    <Image Include="assets\enemysprite_right2.png" />
+    <Image Include="assets\enemysprite_right3.png" />
+    <Image Include="assets\enemysprite_right4.png" />
+    <Image Include="assets\enemysprite_up1.png" />
+    <Image Include="assets\enemysprite_up2.png" />
+    <Image Include="assets\enemysprite_up3.png" />
+    <Image Include="assets\enemysprite_up4.png" />
+    <Image Include="assets\map.png" />
     <Image Include="assets\playersprites.png" />
+    <Image Include="assets\playersprite_death.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="assets\limit_map.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

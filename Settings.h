@@ -6,8 +6,8 @@
 
 class Settings {
 public:
-    static const int Width = 1720;
-    static const int Height = 900;
+    static const int Width = 1500;
+    static const int Height = 800;
 
     Settings (int maxHealth);
 

@@ -18,9 +18,30 @@
     <ClCompile Include="main.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Archivos de encabezado</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Archivos de encabezado</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Archivos de encabezado</Filter>
+    </ClCompile>
+    <ClCompile Include="Settings.cpp">
+      <Filter>Archivos de encabezado</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="player.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Settings.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
@@ -28,5 +49,121 @@
     <Image Include="assets\playersprites.png">
       <Filter>Archivos de recursos</Filter>
     </Image>
+    <Image Include="..\GameUCSP2023-Cris\assets\playersprite_down1.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="..\GameUCSP2023-Cris\assets\playersprite_down2.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="..\GameUCSP2023-Cris\assets\playersprite_down3.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="..\GameUCSP2023-Cris\assets\playersprite_down4.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="..\GameUCSP2023-Cris\assets\playersprite_left1.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="..\GameUCSP2023-Cris\assets\playersprite_left2.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="..\GameUCSP2023-Cris\assets\playersprite_left3.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="..\GameUCSP2023-Cris\assets\playersprite_left4.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="..\GameUCSP2023-Cris\assets\playersprite_right1.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="..\GameUCSP2023-Cris\assets\playersprite_right2.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="..\GameUCSP2023-Cris\assets\playersprite_right3.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="..\GameUCSP2023-Cris\assets\playersprite_right4.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="..\GameUCSP2023-Cris\assets\playersprite_up1.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="..\GameUCSP2023-Cris\assets\playersprite_up2.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="..\GameUCSP2023-Cris\assets\playersprite_up3.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="..\GameUCSP2023-Cris\assets\playersprite_up4.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="..\GameUCSP2023-Cris\assets\playersprites.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="..\GameUCSP2023-Cris\assets\walksprites.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="assets\map.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="assets\playersprite_death.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="assets\enemysprite_down1.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="assets\enemysprite_down2.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="assets\enemysprite_down3.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="assets\enemysprite_down4.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="assets\enemysprite_left1.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="assets\enemysprite_left2.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="assets\enemysprite_left3.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="assets\enemysprite_left4.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="assets\enemysprite_right1.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="assets\enemysprite_right2.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="assets\enemysprite_right3.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="assets\enemysprite_right4.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="assets\enemysprite_up1.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="assets\enemysprite_up2.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="assets\enemysprite_up3.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+    <Image Include="assets\enemysprite_up4.png">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="assets\limit_map.txt">
+      <Filter>Archivos de recursos</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
 </Project>

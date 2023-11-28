@@ -1,22 +1,22 @@
 #include <SFML/Graphics.hpp>
 #include <cmath>
-#include <iostream>
-#include <iomanip>
 #include "Entity.h"
 #include "Player.h"
 #include "Enemy.h"
 #include "Settings.h"
 
 int main() {
-    sf::RenderWindow window(sf::VideoMode(Settings::Width, Settings::Height), "Juego SFML");
+    sf::RenderWindow window(sf::VideoMode(Settings::Width, Settings::Height), "SFML UCSPGame");
 
-    Player* player = new Player(30, 200.0f, 200);
-    player->setPosition(100, 100);
-    Enemy* enemy = new Enemy(30, 100.0f, 50);
+    Player* player = new Player(200.0f, 100, 80.0f);
+    player->setPosition(750, 400);
+
+    Enemy* enemy = new Enemy(100.0f, 50, 20.0f);
     enemy->setPosition(600, 400);
-    enemy->setTarget(player);
 
     Settings healthBar(player->getLife());
+    player->setTarget(enemy);
+    enemy->setTarget(player);
 
     sf::Clock clock;
 
@@ -29,20 +29,28 @@ int main() {
                 window.close();
             }
         }
+
+        window.clear();
+
         player->Attack1(enemy);
         enemy->Attack1(player);
+
         if (player->getLife() <= 0) {
             player->Death();
-        }
-        if (enemy->getLife() <= 0) {
             enemy->Death();
         }
+
+        if (enemy->getLife() <= 0) {
+            enemy->Death();
+            enemy->setTarget(player);
+        }
+
         player->update(deltaTime);
         enemy->update(deltaTime);
 
         window.clear();
-        player->draw(window); // Llama a la función draw de Player que ya incluye la llamada a window.draw()
-        enemy->draw(window);  // Llama a la función draw de Enemy que ya incluye la llamada a window.draw()
+        player->draw(window);
+        enemy->draw(window);
 
         healthBar.draw(window);
         healthBar.update(player->getLife());
