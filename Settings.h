@@ -8,11 +8,9 @@ class Settings {
 public:
     static const int Width = 1500;
     static const int Height = 800;
-
-    Settings (int maxHealth);
-
-    void update(int currentHealth);
     void draw(sf::RenderWindow& window);
+    Settings (int maxHealth);
+    void update(int currentHealth);
 
 private:
     int maxHealth;

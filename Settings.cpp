@@ -17,3 +17,4 @@ void Settings::update(int currentHealth) {
 void Settings::draw(sf::RenderWindow& window) {
     window.draw(bar);
 }
+
